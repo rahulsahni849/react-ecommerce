@@ -1,7 +1,7 @@
 .navbar-container{
     display: flex;
     flex-direction: row;   
-    border-bottom: #79c0f2 solid black;
+    box-shadow: 2px 2px rgba(121, 192, 242,0.3);
 }
 #title{
     font-size: 20px;
