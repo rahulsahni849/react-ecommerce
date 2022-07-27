@@ -80,8 +80,12 @@ const ButtonContainer = styled.div`
 `
 const Button = styled.button`
     padding: 10px;
-    font-size: 20px;
-    background-color: transparent;
+    font-size: 16px;
+    width: 100px;
+    border: none;
+    background-color: #79C0F2;
+    border-radius: 30px;
+    color: white;
     cursor: pointer;
 `;
 
@@ -97,7 +101,7 @@ const SlideComp = (props) =>{
                     <Title>{props.title}</Title>
                     <Description>{props.description}</Description>
                     <ButtonContainer>
-                        <Button>click to BUY</Button>
+                        <Button>Buy</Button>
                     </ButtonContainer>
              </InfoContainer>
         </Slide>
@@ -120,8 +124,8 @@ const Slider= ()=>{
                 <ArrowBackIos />
             </Arrow>
             <SliderWrapper index={SlideIndex}>
-                {ItemsData.map((item)=>{
-                    return <SlideComp url={item.url} title={item.title} description={item.description}/>
+                {ItemsData.map((item,ind)=>{
+                    return <SlideComp key={ind} url={item.url} title={item.title} description={item.description}/>
                 })}
             </SliderWrapper>
             <Arrow direction="right" onClick={()=> handleClick("right")}>
