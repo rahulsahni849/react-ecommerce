@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { ArrowBackIos,ArrowForwardIos } from "@material-ui/icons";
+import { useState } from "react";
+import {ItemsData} from '../data'
 
 const Container = styled.div`
     width: 100%;
@@ -7,6 +9,7 @@ const Container = styled.div`
     display: flex;
     position: relative;
     overflow: hidden;
+    
 `
 const Arrow = styled.div`
     background-color: white;
@@ -25,16 +28,20 @@ const Arrow = styled.div`
     cursor: pointer;
     opacity: 0.5;
     z-index: 2;
+    
 `
 const SliderWrapper = styled.div`
     height: 100%;
     display: flex;
-    transform: translateX(0vw);
+    transition: all 1.5s ease ;
+    transform: translateX(${props =>props.index*-100 }vw);
+    
 `
 const Slide = styled.div`
     display: flex;
     width: 100vw;
     height: 100%;
+    
 `
 const ImageContainer = styled.div`
     flex: 1;
@@ -73,8 +80,12 @@ const ButtonContainer = styled.div`
 `
 const Button = styled.button`
     padding: 10px;
-    font-size: 20px;
-    background-color: transparent;
+    font-size: 16px;
+    width: 100px;
+    border: none;
+    background-color: #79C0F2;
+    border-radius: 30px;
+    color: white;
     cursor: pointer;
 `;
 
@@ -90,47 +101,34 @@ const SlideComp = (props) =>{
                     <Title>{props.title}</Title>
                     <Description>{props.description}</Description>
                     <ButtonContainer>
-                        <Button>click to BUY</Button>
+                        <Button>Buy</Button>
                     </ButtonContainer>
              </InfoContainer>
         </Slide>
     )
 }
 
+
 const Slider= ()=>{
+    const [SlideIndex,setSlideIndex] = useState(0);
+    const handleClick = (direction) =>{
+        if(direction==="left"){
+            setSlideIndex(SlideIndex>0?SlideIndex-1:2);
+        }else{
+            setSlideIndex(SlideIndex<2?SlideIndex+1:0);
+        }
+    }
     return (
         <Container>
-            <Arrow direction="left">
+            <Arrow direction="left" onClick={()=> handleClick("left")}>
                 <ArrowBackIos />
             </Arrow>
-            <SliderWrapper>
-                <SlideComp />
-                <Slide>
-                    <ImageContainer>
-                            <Image src="/Images/product-1.jpg" />
-                        </ImageContainer>
-                        <InfoContainer>
-                            <Title>Best book 1</Title>
-                            <Description> for hacking Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, dolore veniam commodi aut, quisquam nemo, assumenda provident aspernatur corporis quod asperiores? Alias accusamus repudiandae exercitationem perspiciatis temporibus, dicta quae culpa.</Description>
-                            <ButtonContainer>
-                                <Button>click to BUY</Button>
-                            </ButtonContainer>
-                    </InfoContainer>
-                </Slide>
-             <Slide>
-                <ImageContainer>
-                        <Image src="/Images/product-1.jpg" />
-                    </ImageContainer>
-                    <InfoContainer>
-                        <Title>Best book 2</Title>
-                        <Description> for hacking Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, dolore veniam commodi aut, quisquam nemo, assumenda provident aspernatur corporis quod asperiores? Alias accusamus repudiandae exercitationem perspiciatis temporibus, dicta quae culpa.</Description>
-                        <ButtonContainer>
-                            <Button>click to BUY</Button>
-                        </ButtonContainer>
-                    </InfoContainer>
-                </Slide>
+            <SliderWrapper index={SlideIndex}>
+                {ItemsData.map((item,ind)=>{
+                    return <SlideComp key={ind} url={item.url} title={item.title} description={item.description}/>
+                })}
             </SliderWrapper>
-            <Arrow direction="right">
+            <Arrow direction="right" onClick={()=> handleClick("right")}>
                 <ArrowForwardIos />
             </Arrow>
         </Container>
