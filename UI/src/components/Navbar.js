@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Logo from './Logo'
 import './Navbar.style.css'
 import React from "react";
+import { useSelector } from 'react-redux'
 
 const MenuItems = (props) => {
     return ( <
@@ -41,6 +42,9 @@ const ProfileMenuDiv = styled.div `
 `;
 
 const Navbar = () => {
+        const quantity = useSelector(state => state.cart.quantity);
+
+        console.log(quantity);
         return ( <
                 div className = "navbar-container" >
                 <
@@ -73,7 +77,7 @@ const Navbar = () => {
                         <
                         ShoppingCartMenuDiv >
                         <
-                        Badge badgeContent = { 4 }
+                        Badge badgeContent = { quantity }
                         color = "secondary" >
                         <
                         ShoppingCart / >
