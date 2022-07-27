@@ -2,9 +2,9 @@ import styled from 'styled-components'
 import { useState } from 'react'
 import ProductItem from './ProductItem'
 import { shoppingItems } from '../data'
+import React from "react";
 
-
-const Container = styled.div`
+const Container = styled.div `
     display:flex;
     flex-wrap:wrap;
     padding: 20px;
@@ -12,7 +12,7 @@ const Container = styled.div`
     align-items: center;
 `
 
-const ViewMoreButton = styled.button`
+const ViewMoreButton = styled.button `
     margin-top:20px;
     border: none;
     font-size: 16px;
@@ -25,31 +25,36 @@ const ViewMoreButton = styled.button`
 `
 
 const ProductsList = () => {
-    const lenOfList = shoppingItems.length;
-    const [viewMore, setViewMore] = useState(4);
-    var MoreButtonHandler = () => {
-        var data = viewMore;
-        if (viewMore < lenOfList - 1) {
-            if ((viewMore + 4) < lenOfList) {
-                data += viewMore + 4;
-            } else {
-                data += (lenOfList - viewMore);
-            }
-            setViewMore(data);
+        const lenOfList = shoppingItems.length;
+        const [viewMore, setViewMore] = useState(4);
+        var MoreButtonHandler = () => {
+                var data = viewMore;
+                if (viewMore < lenOfList - 1) {
+                    if ((viewMore + 4) < lenOfList) {
+                        data += viewMore + 4;
+                    } else {
+                        data += (lenOfList - viewMore);
+                    }
+                    setViewMore(data);
 
+                }
+
+            }
+            //console.log(`len of data: ${lenOfList} and vieMore : ${viewMore}`)
+        return ( <
+            Container > {
+                shoppingItems.slice(0, viewMore).map((item, index) => {
+                    return <ProductItem item = { item }
+                    key = { index }
+                    />
+                })
+            } {
+                viewMore <= lenOfList && < ViewMoreButton onClick = {
+                        () => { MoreButtonHandler() }
+                    } > View More < /ViewMoreButton>} < /
+                    Container >
+            )
         }
 
-    }
-    //console.log(`len of data: ${lenOfList} and vieMore : ${viewMore}`)
-    return (
-        <Container>
-            {shoppingItems.slice(0, viewMore).map((item, index) => {
-                return <ProductItem item={item} key={index} />
-            })}
-            {viewMore <= lenOfList && <ViewMoreButton onClick={() => { MoreButtonHandler() }}>View More</ViewMoreButton>}
-        </Container>
-    )
-}
 
-
-export default ProductsList
+        export default ProductsList

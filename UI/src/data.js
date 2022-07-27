@@ -1,3 +1,4 @@
+import uuid from 'react-uuid'
 export const ItemsData = [{
         "id": 1,
         "url": "/Images/product-1.jpg",

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import React from "react";
 
 const Container = styled.div`
     background-color: #cfe9f3;
@@ -14,7 +14,7 @@ const LogoText = styled.p`
         transform: rotate(360deg);
 }
 `
-const Logo = ()=>{
+const Logo = () => {
     return (
         <Container>
             <LogoText>

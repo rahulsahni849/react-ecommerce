@@ -3,20 +3,26 @@ import Slider from '../components/Slider'
 import Announcements from "../components/Announcements";
 import styled from "styled-components";
 import ProductsList from "../components/ProductsList";
+import React from "react";
 
-const HomeContainer = styled.div`
+const HomeContainer = styled.div `
     display:flex;
     flex-direction: column;
     background-color: #EEEEEE;
 `
 const Home = () => {
-    return (
-        <HomeContainer>
-            <Announcements />
-            <Navbar />
-            <Slider />
-            <ProductsList />
-        </HomeContainer>
+    return ( <
+        HomeContainer >
+        <
+        Announcements / >
+        <
+        Navbar / >
+        <
+        Slider / >
+        <
+        ProductsList / >
+        <
+        /HomeContainer>
 
     )
 }
