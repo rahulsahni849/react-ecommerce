@@ -1,8 +1,8 @@
-import Navbar from "../components/Navbar";
 import Slider from '../components/Slider'
 import Announcements from "../components/Announcements";
 import styled from "styled-components";
 import ProductsList from "../components/ProductsList";
+import Categories from "../components/Categories";
 
 const HomeContainer = styled.div`
     display:flex;
@@ -13,11 +13,10 @@ const Home = () => {
     return (
         <HomeContainer>
             <Announcements />
-            <Navbar />
             <Slider />
+            <Categories />
             <ProductsList />
         </HomeContainer>
-
     )
 }
 

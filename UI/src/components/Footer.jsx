@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Logo from './Logo'
 import {
     Facebook,
     Instagram,
@@ -71,8 +72,7 @@ const Footer = () => {
     return (
         <Container>
             <Left>
-                <h5>Logo</h5>
-
+                <Logo />
                 <Desc> WeShop means We Shop , Wish and Shop. This is One Destination
                     Store for All your Needs like Clothing, Books etc.
                 </Desc>
