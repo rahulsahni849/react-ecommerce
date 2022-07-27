@@ -1,5 +1,4 @@
-export const ItemsData = [
-    {
+export const ItemsData = [{
         "id": 1,
         "url": "/Images/product-1.jpg",
         "title": "Book 1",
@@ -28,4 +27,24 @@ export const ItemsData = [
 
     },
 
-]
+];
+
+export const categories = [{
+        id: 1,
+        img: "https://images.pexels.com/photos/7945660/pexels-photo-7945660.jpeg?auto=compress&cs=tinysrgb&w=600",
+        title: "SHIRT STYLE!",
+        cat: "women"
+    },
+    {
+        id: 2,
+        img: "https://images.pexels.com/photos/5444908/pexels-photo-5444908.jpeg?auto=compress&cs=tinysrgb&w=600",
+        title: "LOUNGEWEAR LOVE",
+        cat: "coat"
+    },
+    {
+        id: 3,
+        img: "https://images.pexels.com/photos/12793105/pexels-photo-12793105.jpeg?auto=compress&cs=tinysrgb&w=600",
+        title: "LIGHT JACKETS",
+        cat: "jeans"
+    },
+];
