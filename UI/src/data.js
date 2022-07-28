@@ -52,19 +52,19 @@ export const categories = [{
 
 
 export const shoppingItems = [{
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2Nhsgz3z8bzfXFbDaPHXylJO4f2y50cfyz-58a91wnBpMeEY5-TGe&amp;usqp=CAU",
+        "image": "https://www.prada.com/content/dam/pradabkg_products/S/SPH/SPH218/1QWCF0049/SPH218_1QWC_F0049_S_221_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.1000.webp",
         "id": uuid()
     },
     {
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4ZyBu_yDTqZ84n6TWGrhs8-luoOhTCEYkjg&amp;usqp=CAU",
+        "image": "https://www.prada.com/content/dam/pradabkg_products/2/2X3/2X3083/3LKKF0002/2X3083_3LKK_F0002_SLS.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.1000.webp",
         "id": uuid()
     },
     {
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6xtlJ59Bnjo5xh3PvDIIt1HPqibAyIjZ52g&amp;usqp=CAU",
+        "image": "https://www.prada.com/content/dam/pradabkg_products/2/2HC/2HC137/2DXIF0613/2HC137_2DXI_F0613_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.800.1000.webp",
         "id": uuid()
     },
     {
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7pnMjXGb2OEbodndxCG_4_dI72vBWyIY0KQ&amp;usqp=CAU",
+        "image": "https://www.prada.com/content/dam/pradabkg_products/S/SPR/SPR22Y/E1ABF00B7/SPR22Y_E1AB_F00B7_C_056_SLF.jpg/jcr:content/renditions/cq5dam.web.hebebed.1250.1250.jpg,https://www.prada.com/content/dam/pradabkg_products/S/SPR/SPR22Y/E1ABF00B7/SPR22Y_E1AB_F00B7_C_056_SLF.jpg/jcr:content/renditions/cq5dam.web.hebebed.2000.2000.jpg",
         "id": uuid()
     },
     {

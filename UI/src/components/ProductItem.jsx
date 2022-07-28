@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { ShoppingCartOutlined, SearchOutlined, FavoriteBorderOutlined } from '@material-ui/icons';
 import React from 'react';
 
-const Info = styled.div `
+const Info = styled.div`
     height: 100%;
     width: 100%;
     position: absolute;
@@ -15,7 +15,7 @@ const Info = styled.div `
     align-items: center;
     opacity: 0;
 `
-const Container = styled.div `
+const Container = styled.div`
     flex:1;
     margin: 5px;
     min-width: 350px;
@@ -32,16 +32,16 @@ const Container = styled.div `
 
 `
 
-const Image = styled.img `
+const Image = styled.img`
     height: 75%;
     width: 75%;
     z-index: 2;
     justify-content: center;
     align-items: center;
-
+    object-fit:cover;
 `
 
-const Circle = styled.div `
+const Circle = styled.div`
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -53,7 +53,7 @@ const Circle = styled.div `
 `
 
 
-const Icon = styled.div `
+const Icon = styled.div`
     background-color: white;
     width: 40px;
     height: 40px;
@@ -71,32 +71,30 @@ const Icon = styled.div `
     }
 `
 const ProductItem = ({ item }) => {
-    return ( <
+    return (<
         Container >
-        <
-        Circle / >
-        <
-        Image src = { item.image } > < /Image> <
-        Info >
-        <
+        <Circle />
+        <Image src={item.image} />
+        <Info >
+            <
         Icon >
-        <
-        SearchOutlined / >
-        <
+                <
+                    SearchOutlined />
+                <
         /Icon> <
         Icon >
-        <
-        ShoppingCartOutlined / >
-        <
+                    <
+                        ShoppingCartOutlined />
+                    <
         /Icon> <
         Icon >
-        <
-        FavoriteBorderOutlined / >
-        <
+                        <
+                            FavoriteBorderOutlined />
+                        <
         /Icon> < /
         Info > <
         /Container>
-    )
+                        )
 }
 
-export default ProductItem;
+                        export default ProductItem;

@@ -96,7 +96,7 @@ const SlideComp = (props) => {
     return (
         <Slide>
             <ImageContainer>
-                <Image src={props.url} />
+                <Image src={props.url}></Image>
             </ImageContainer>
             <InfoContainer>
                 <Title>{props.title}</Title>

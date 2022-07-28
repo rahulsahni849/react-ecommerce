@@ -1,8 +1,9 @@
 import styled from 'styled-components'
-import { useState } from 'react'
-import ProductItem from './ProductItem'
+import { useEffect, useState } from 'react'
+import ProductItem from './ProductItem.jsx'
 import { shoppingItems } from '../data'
 import React from "react";
+import axios from 'axios'
 
 const Container = styled.div `
     display:flex;
@@ -11,7 +12,6 @@ const Container = styled.div `
     justify-content: center;
     align-items: center;
 `
-
 const ViewMoreButton = styled.button `
     margin-top:20px;
     border: none;
@@ -20,11 +20,28 @@ const ViewMoreButton = styled.button `
     color: white;
     border-radius: 20px;
     padding : 10px;
-
-
 `
 
-const ProductsList = () => {
+const ProductsList = ({ cat, filters, sort }) => {
+        console.log(cat);
+        const [products, setProducts] = useState([]);
+        const [filteredProducts, setFilteredProducts] = useState([]);
+
+        useEffect(() => {
+            console.log("In Effect");
+            const getProducts = async() => {
+                try {
+                    console.log("api call");
+                    const res = await axios.get("http://localhost:5000/api/products");
+                    console.log(res);
+                } catch (err) {
+                    console.log(err);
+                }
+            };
+
+            getProducts();
+        }, [cat]);
+
         const lenOfList = shoppingItems.length;
         const [viewMore, setViewMore] = useState(4);
         var MoreButtonHandler = () => {
@@ -50,11 +67,11 @@ const ProductsList = () => {
                 })
             } {
                 viewMore <= lenOfList && < ViewMoreButton onClick = {
-                        () => { MoreButtonHandler() }
-                    } > View More < /ViewMoreButton>} < /
-                    Container >
+                    () => { MoreButtonHandler() }
+                } > View More < /ViewMoreButton>} < /
+                Container >
             )
         }
 
 
-        export default ProductsList
+        export default ProductsList;
