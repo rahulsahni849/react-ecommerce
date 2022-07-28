@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.links{
+  color:black;
+  text-decoration: none;
+  text-transform: none; 
+  font-family: AudioWide;
+}

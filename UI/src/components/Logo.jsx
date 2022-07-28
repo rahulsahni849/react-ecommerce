@@ -1,24 +1,30 @@
 import styled from "styled-components";
-
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
     background-color: #cfe9f3;
     border-radius: 60%;
     cursor: pointer;
-   
-`
-const LogoText = styled.p`
     font-family: AudioWide;
-    transition: all 1.5s ease;
+`
+
+
+const LogoText = styled.p`
+    
+    transition: all 0.7s ease;
+    color:black;
+    text-decoration: none;
+    text-transform: none; 
     &:hover{
-        transform: rotate(360deg);
-}
+        transform: scale(1.1);
+ }
+
 `
 const Logo = ()=>{
     return (
         <Container>
             <LogoText>
-                Wi-SHOP
+                <Link className="links" to='/product'>Wi-SHOP</Link>
             </LogoText>
         </Container>
     )
