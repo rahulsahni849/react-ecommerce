@@ -1,5 +1,9 @@
 import styled from "styled-components";
+<<<<<<< HEAD
 import { Link } from 'react-router-dom'
+=======
+import React from "react";
+>>>>>>> d80578104672cc85a84546b4fe8db10703563159
 
 const Container = styled.div`
     background-color: #cfe9f3;
@@ -20,7 +24,7 @@ const LogoText = styled.p`
  }
 
 `
-const Logo = ()=>{
+const Logo = () => {
     return (
         <Container>
             <LogoText>
