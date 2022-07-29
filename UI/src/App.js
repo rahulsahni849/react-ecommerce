@@ -11,13 +11,19 @@ import { Routes, Route } from 'react-router-dom';
 
 
 function App() {
-  <div className="App">
-    <Navbar />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/product" element={<ProductPage />} />
-    </Routes>
-    <Footer />
-  </div >
-    ;
+  return (
+    <div className="App">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/product" element={<ProductPage />} />
+      </Routes>
+      <Footer />
+    </div >
+  )
+
 }
+
+export default App;
+
+
