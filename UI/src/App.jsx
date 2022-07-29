@@ -12,6 +12,7 @@ import ProductItem from "./components/ProductItem";
 import { useSelector } from "react-redux";
 import { flushSync } from "react-dom";
 import { REGISTER } from "redux-persist";
+import CartPage from "./pages/CartPage";
 
 function App() {
   const { currentUser } = useSelector((state) => state.user);
@@ -19,19 +20,6 @@ function App() {
   return (
     <Router>
       <Switch>
-        {/* <Route path="/register">
-                    {user ? <Redirect to="/"/> : <Redirect / >}
-                    <Reegister />
-                </Route>
-                
-                <Route path="/login">
-                    {user ? <Redirect to="/"/> : <Login/ >}
-                    <Login />
-                </Route>
-                
-                <Route path="/cart">
-                    <Cart />
-                </Route> */}
         <Route path="/login">
           {currentUser ? <Redirect to="/" /> : <Login />}
           <Login />
@@ -45,6 +33,16 @@ function App() {
 
         <Route path="/product /:id ">
           <ProductItem />
+        </Route>
+        <Route path="/cart">
+          <CartPage />
+        </Route>
+        <Route path="/products/:category">
+          <Products />
+        </Route>
+
+        <Route path="/product/:id">
+          <ProductPage />
         </Route>
 
         <Route path="/products">

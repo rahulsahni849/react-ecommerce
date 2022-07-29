@@ -1,7 +1,18 @@
 import styled from "styled-components";
-import { useState } from "react";
+import React from 'react';
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { publicRequest } from "../requestMethods";
+import { addProduct } from "../redux/cartRedux";
+import { useDispatch } from "react-redux";
 
-const Container = styled.div`
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Announcements from "../components/Announcements";
+
+const Container = styled.div``;
+
+const Wrapper = styled.div`
   padding: 50px;
 
   display: flex;
@@ -122,68 +133,89 @@ const Button = styled.button`
 //const AddContainer = styled
 
 const ProductPage = () => {
-  const [quantity, setQuantity] = useState(0);
-  const handleClick = (value) => {
-    if (value === "add") {
-      setQuantity((prevQuantity) => prevQuantity + 1);
-    } else if (value === "remove" && quantity > 0) {
-      setQuantity((prevQuantity) => prevQuantity - 1);
+
+  const location = useLocation();
+  const id = location.pathname.split("/")[2];
+  const [product, setProduct] = useState({});
+  const [quantity, setQuantity] = useState(1);
+  const [color, setColor] = useState("");
+  const [size, setSize] = useState("");
+  const dispatch = useDispatch();
+
+  console.log(id)
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        console.log("Api Call")
+        const res = await publicRequest.get("/products/find/" + id);
+        console.log("Response")
+        console.log(res)
+        setProduct(res.data);
+      } catch { }
+    };
+
+    getProduct();
+  }, [id]);
+
+  const handleQuantity = (type) => {
+    if (type === "dec") {
+      quantity > 1 && setQuantity(quantity - 1);
+    } else {
+      setQuantity(quantity + 1);
     }
   };
+
+  const handleClick = () => {
+    dispatch(
+      addProduct({ ...product, quantity, color, size })
+    );
+  };
+
   return (
     <Container>
-      <ImageContainer>
-        <Image src="/Images/product-1.jpg" />
-      </ImageContainer>
-      <InfoContainer>
-        <Title>Book 1</Title>
-        <Description>
-          hacking book for intermediate level Pariatur duis cupidatat ut irure
-          sint ex occaecat laboris eu elit ullamco dolor sunt. Commodo voluptate
-          veniam consectetur sint nulla nisi irure. Occaecat exercitation
-          exercitation duis sit eiusmod adipisicing non exercitation veniam.
-          Laborum minim eu adipisicing elit cillum esse non sunt ametSunt
-          adipisicing nisi consequat irure duis adipisicing ipsum ut. Cillum
-          nostrud dolore duis aute quis magna sit nulla aliquip aliquip anim
-          anim in Lorem. Sit id irure incididunt dolore in ad exercitation
-          cupidatat mollit esse ea. Deserunt dolore ullamco id laboris ullamco
-          cillum labore reprehenderit laboris minim do. Ea ad cupidatat pariatur
-          aute est reprehenderit enim labore in. Eu nostrud sint Lorem minim.
-          Proident commodo tempor ipsum irure veniam consequat eu nisi deserunt
-          id non adipisicing. Ex in occaecat enim incididunt consectetur nulla
-          officia excepteur. Consectetur mollit amet incididunt nisi aliqua
-          mollit aliqua culpa elit non do ullamco. Ipsum do nulla exercitation
-          do cillum laboris et commodo commodo eu duis sit anim amet. Sit nulla
-          tempor sint elit.
-        </Description>
-        <Price>Price: 20$</Price>
-        <FilterContainer>
-          <Filter>
-            <FilterTitle>Color</FilterTitle>
-            <FilterColor color="red" />
-            <FilterColor color="blue" />
-            <FilterColor color="green" />
-            <FilterColor color="yellow" />
-          </Filter>
-          <Filter>
-            <FilterTitle>Size</FilterTitle>
-            <FilterSize>
-              <FilterSizeOption>s</FilterSizeOption>
-              <FilterSizeOption>m</FilterSizeOption>
-              <FilterSizeOption>l</FilterSizeOption>
-              <FilterSizeOption>XL</FilterSizeOption>
-            </FilterSize>
-          </Filter>
-        </FilterContainer>
-        <AddContainer>
-          <AmountContainer>
-            <Remove onClick={() => handleClick("remove")}> - </Remove>
-            <Amount>{quantity}</Amount>
-            <Add onClick={() => handleClick("add")}> + </Add>
-          </AmountContainer>
-          <Button>ADD TO CART</Button>
-        </AddContainer>
-      </InfoContainer>
+      <Navbar />
+      <Announcements />
+
+      <Wrapper>
+        <ImageContainer>
+          <Image src={product.img} />
+        </ImageContainer>
+        <InfoContainer>
+          <Title>{product.title}</Title>
+          <Description>
+            {product.desc}
+          </Description>
+          <Price>Price: {product.price} $</Price>
+          <FilterContainer>
+            <Filter>
+              <FilterTitle>Color</FilterTitle>
+              {product.color ? product.color.map((c) => (
+                <FilterColor color={c} key={c} onClick={() => setColor(c)} />
+              )) : <></>}
+            </Filter>
+            <Filter>
+              <FilterTitle>Size</FilterTitle>
+              <FilterSize>
+                {product.size ? product.size.map((s) => (
+                  <FilterSizeOption key={s} onClick={() => setSize(s)}>{s}</FilterSizeOption>
+                )) : <></>}
+              </FilterSize>
+            </Filter>
+          </FilterContainer>
+          <AddContainer>
+            <AmountContainer>
+              <Remove onClick={() => handleQuantity("dec")}> - </Remove>
+              <Amount>{quantity}</Amount>
+              <Add onClick={() => handleQuantity("inc ")}> + </Add>
+            </AmountContainer>
+            <Button onClick={() => handleClick()}>ADD TO CART</Button>
+          </AddContainer>
+        </InfoContainer>
+
+      </Wrapper>
+
+      <Footer />
     </Container>
   );
 };
