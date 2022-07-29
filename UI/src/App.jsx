@@ -2,18 +2,17 @@ import "./App.css";
 import React from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { Switch } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import Products from "./pages/Products";
 import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
-import ProductPage from "./pages/ProductPage";
 
-import ProductItem from "./components/ProductItem";
-import { useSelector } from "react-redux";
-import { flushSync } from "react-dom";
-import { REGISTER } from "redux-persist";
+import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
+import ProductPage from "./pages/ProductPage";
+import AboutPage from "./pages/AboutPage";
 
 function App() {
   const { currentUser } = useSelector((state) => state.user);
@@ -21,23 +20,18 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/login">
-          {currentUser ? <Redirect to="/" /> : <Login />}
-          <Login />
-        </Route>
-        <Route path="/register">
-          {false ? <Redirect to="/" /> : <Register />}
-        </Route>
-        <Route path="/products/:category">
-          <Products />
+        <Route path="/about">
+          <AboutPage />
         </Route>
 
-        <Route path="/product /:id ">
-          <ProductItem />
+        <Route path="/login">
+          <Login />
         </Route>
-        <Route path="/cart">
-          <CartPage />
+
+        <Route path="/register">
+          <Register />
         </Route>
+
         <Route path="/products/:category">
           <Products />
         </Route>
@@ -50,13 +44,7 @@ function App() {
           <Products />
         </Route>
 
-        <Route path="/about">
-          <h1>In development</h1>
-        </Route>
-
-        <Route path="/contacts">
-          <h1>In development</h1>
-        </Route>
+        <Route path="/cart">{currentUser ? <CartPage /> : <Login />}</Route>
 
         <Route path="/">
           <Home />
