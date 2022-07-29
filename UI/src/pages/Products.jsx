@@ -9,7 +9,7 @@ import Announcements from "../components/Announcements";
 import ProductsList from "../components/ProductsList.jsx";
 
 const Select = styled.select`
-  maegin: 10px;
+  margin: 10px;
   padding: 10px;
 `;
 const Option = styled.option`

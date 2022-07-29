@@ -4,6 +4,10 @@ import { Search, ShoppingCart, AccountBox } from '@material-ui/icons'
 import { Badge } from '@material-ui/core'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import './Navbar.style.css';
+
+import Logo from './Logo.jsx'
+
 
 const MenuItems = (props) => {
     return (<div className="navbar-menu-item" > {props.menu} </div>)
