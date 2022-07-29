@@ -7,6 +7,7 @@ import Products from "./pages/Products";
 import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
+import ProductPage from "./pages/ProductPage";
 
 import ProductItem from "./components/ProductItem";
 import { useSelector } from "react-redux";
@@ -47,6 +48,14 @@ function App() {
 
         <Route path="/products">
           <Products />
+        </Route>
+
+        <Route path="/about">
+          <h1>In development</h1>
+        </Route>
+
+        <Route path="/contacts">
+          <h1>In development</h1>
         </Route>
 
         <Route path="/">

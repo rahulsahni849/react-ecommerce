@@ -5,13 +5,27 @@ import styled from 'styled-components'
 import Logo from './Logo'
 import './Navbar.style.css'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const MenuItems = (props) => {
     return (<div className="navbar-menu-item"> {props.menu}</div>
     )
 }
 
-const Menus = ["Products", "About", "Contacts"];
+
+const Menus = [
+    {
+        MenuName: "Products",
+        url: "/products"
+    },
+    {
+        MenuName: "About",
+        url: "/about"
+    },
+    {
+        MenuName: "Contacts",
+        url: "/contacts"
+    }];
 
 const ShoppingCartMenuDiv = styled.div`
     margin-right: 10px;
@@ -58,8 +72,8 @@ const Navbar = () => {
         </div >
         <div className="navbar-menu-right" >
             <div className="navbar-menu-items" > {
-                Menus.map((item, ind) => < MenuItems menu={item}
-                    key={ind} />)}
+                Menus.map((item, ind) => <Link to={item.url} style={{ textDecoration: 'none', color: 'black' }}><MenuItems menu={item.MenuName}
+                    key={ind}> </MenuItems></Link>)}
             </div >
             <div className="navbar-right-menu-items" >
                 <ShoppingCartMenuDiv >
