@@ -10,7 +10,10 @@ import { Switch } from "react-router-dom";
 import Products from './pages/Products'
 import Home from './pages/Home.jsx'
 
-import ProductItem from './components/ProductItem'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import ProductPage from './pages/ProductPage.jsx'
+import CartPage from './pages/CartPage'
 
 function App() {
     const user = true;
@@ -18,25 +21,25 @@ function App() {
     return (
         <Router>
             <Switch>
-                {/* <Route path="/register">
-                    {user ? <Redirect to="/"/> : <Redirect / >}
-                    <Reegister />
+                <Route path="/register">
+                    {user ? <Redirect to="/" /> : <Redirect />}
+                    <Register />
                 </Route>
-                
+
                 <Route path="/login">
-                    {user ? <Redirect to="/"/> : <Login/ >}
+                    {user ? <Redirect to="/" /> : <Login />}
                     <Login />
                 </Route>
-                
+
                 <Route path="/cart">
-                    <Cart />
-                </Route> */}
+                    <CartPage />
+                </Route>
                 <Route path="/products/:category">
                     <Products />
                 </Route>
 
-                <Route path="/product/:id ">
-                    <ProductItem />
+                <Route path="/product/:id">
+                    <ProductPage />
                 </Route>
 
                 <Route path="/products">
