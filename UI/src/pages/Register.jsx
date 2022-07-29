@@ -1,13 +1,9 @@
-<<<<<<< HEAD
+import React from "react";
 import styled from "styled-components";
+
 import Navbar from "../components/Navbar";
 import Announcements from "../components/Announcements";
 import Footer from "../components/Footer";
-import React from "react";
-=======
-import styled from 'styled-components'
-import React from 'react'
->>>>>>> dbce43492a249a6339914c1e9059aa8d124a479d
 
 const Container = styled.div`
   width: 100%;
