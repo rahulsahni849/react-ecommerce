@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   flex: 1;
@@ -23,6 +24,7 @@ const TitleContainer = styled.div`
   justify-content: center;
 `;
 const Title = styled.h1`
+<<<<<<< HEAD
   font-weight: 500;
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(5px);
@@ -35,6 +37,22 @@ const CategoryItem = ({ item }) => {
       <TitleContainer>
         <Title> {item.title} </Title>
       </TitleContainer>
+=======
+    font-weight:500;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(5px);
+    color:black;
+`
+
+const CategoryItem = ({ item }) => {
+    return (<Container >
+        <Link to={`/products/${item.cat}`}>
+            <Image src={item.img} />
+            <TitleContainer>
+                <Title> {item.title} </Title>
+            </TitleContainer>
+        </Link>
+>>>>>>> af6175d9b28585619a064b1a34d2cf5ceae058dc
     </Container>
   );
 };
