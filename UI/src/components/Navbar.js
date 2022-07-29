@@ -1,9 +1,9 @@
+import React from 'react'
 import { Search, ShoppingCart, AccountBox } from '@material-ui/icons'
 import { Badge } from '@material-ui/core'
 import styled from 'styled-components'
 import Logo from './Logo'
 import './Navbar.style.css'
-import React from "react";
 import { useSelector } from 'react-redux'
 
 const MenuItems = (props) => {

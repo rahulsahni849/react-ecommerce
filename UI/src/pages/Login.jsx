@@ -1,8 +1,12 @@
+import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../redux/apiCalls";
 import { useSelector } from "react-redux";
+import Announcements from "../components/Announcements";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const Container = styled.div`
   width: 100%;
@@ -51,45 +55,54 @@ const Link = styled.a`
   font-size: 12px;
 `;
 
+const Error = styled.b`
+  color: red;
+  margin: 20px 0px;
+`;
+
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const isFetching = false;
-  //const { isFetching, error } = useSelector((state) => state.user);
+  const { isFetching, error } = useSelector((state) => state.user);
   const handleClick = (e) => {
     e.preventDefault();
-
-    console.log(username, ":", password);
-    login(dispatch, { username, password });
+    const email = username;
+    login(dispatch, { email, password });
   };
 
   return (
-    <Container>
-      <Wrapper>
-        <Title>SIGN IN</Title>
-        <Form>
-          <Input
-            placeholder="username"
-            onChange={(e) => {
-              setUsername(e.target.value);
-            }}
-          />
-          <Input
-            placeholder="password"
-            type="password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-          <Button onClick={handleClick} disabled={isFetching}>
-            Create
-          </Button>
-          <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-          <Link>CREATE A NEW ACCOUNT</Link>
-        </Form>
-      </Wrapper>
-    </Container>
+    <div>
+      <Navbar />
+      <Announcements />
+      <Container>
+        <Wrapper>
+          <Title>SIGN IN</Title>
+          <Form>
+            <Input
+              placeholder="username"
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
+            />
+            <Input
+              placeholder="password"
+              type="password"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+            {error ? <Error>Email or Password is wrong</Error> : null}
+            <Button onClick={handleClick} disabled={isFetching}>
+              Log In
+            </Button>
+            <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
+            <Link>CREATE A NEW ACCOUNT</Link>
+          </Form>
+        </Wrapper>
+      </Container>
+      <Footer />
+    </div>
   );
 };
 
