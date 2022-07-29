@@ -12,6 +12,7 @@ import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import CartPage from "./pages/CartPage";
 import ProductPage from "./pages/ProductPage"
+import AboutPage from "./pages/AboutPage"
 
 function App() {
   const { currentUser } = useSelector((state) => state.user);
@@ -19,13 +20,18 @@ function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/about">
+          <AboutPage />
+        </Route>
+
         <Route path="/login">
-          {currentUser ? <Redirect to="/" /> : <Login />}
           <Login />
         </Route>
+
         <Route path="/register">
-          {false ? <Redirect to="/" /> : <Register />}
+          <Register />
         </Route>
+
         <Route path="/products/:category">
           <Products />
         </Route>
@@ -39,7 +45,7 @@ function App() {
         </Route>
 
         <Route path="/cart">
-          <CartPage />
+          {currentUser ? <CartPage /> : <Login />}
         </Route>
 
         <Route path="/">
