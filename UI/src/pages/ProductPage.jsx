@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React from 'react';
+import React from "react";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { publicRequest } from "../requestMethods";
@@ -133,7 +133,6 @@ const Button = styled.button`
 //const AddContainer = styled
 
 const ProductPage = () => {
-
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   const [product, setProduct] = useState({});
@@ -142,17 +141,17 @@ const ProductPage = () => {
   const [size, setSize] = useState("");
   const dispatch = useDispatch();
 
-  console.log(id)
+  console.log(id);
 
   useEffect(() => {
     const getProduct = async () => {
       try {
-        console.log("Api Call")
+        console.log("Api Call");
         const res = await publicRequest.get("/products/find/" + id);
-        console.log("Response")
-        console.log(res)
+        console.log("Response");
+        console.log(res);
         setProduct(res.data);
-      } catch { }
+      } catch {}
     };
 
     getProduct();
@@ -167,15 +166,13 @@ const ProductPage = () => {
   };
 
   const handleClick = () => {
-    console.log("Quantity")
-    console.log(quantity)
-    console.log("Color")
-    console.log(color)
-    console.log("Size")
-    console.log(size)
-    dispatch(
-      addProduct({ ...product, quantity, color, size })
-    );
+    console.log("Quantity");
+    console.log(quantity);
+    console.log("Color");
+    console.log(color);
+    console.log("Size");
+    console.log(size);
+    dispatch(addProduct({ ...product, quantity, color, size }));
   };
 
   return (
@@ -189,24 +186,32 @@ const ProductPage = () => {
         </ImageContainer>
         <InfoContainer>
           <Title>{product.title}</Title>
-          <Description>
-            {product.desc}
-          </Description>
+          <Description>{product.desc}</Description>
           <Price>Price: {product.price} $</Price>
           <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>
-              {product.color ? product.color.map((c) => (
-                <FilterColor color={c} key={c} onClick={() => setColor(c)} />
-              )) : <></>}
+              {product.color ? (
+                product.color.map((c) => (
+                  <FilterColor color={c} key={c} onClick={() => setColor(c)} />
+                ))
+              ) : (
+                <></>
+              )}
             </Filter>
             <Filter>
               <FilterTitle>Size</FilterTitle>
 
-              <FilterSize onChange={e => setSize(e.target.value)}>
-                {product.size ? product.size.map((s) => (
-                  <FilterSizeOption key={s} onClick={() => setSize(s)}>{s}</FilterSizeOption>
-                )) : <></>}
+              <FilterSize onChange={(e) => setSize(e.target.value)}>
+                {product.size ? (
+                  product.size.map((s) => (
+                    <FilterSizeOption key={s} onClick={() => setSize(s)}>
+                      {s}
+                    </FilterSizeOption>
+                  ))
+                ) : (
+                  <></>
+                )}
               </FilterSize>
             </Filter>
           </FilterContainer>
@@ -219,7 +224,6 @@ const ProductPage = () => {
             <Button onClick={() => handleClick()}>ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
-
       </Wrapper>
 
       <Footer />

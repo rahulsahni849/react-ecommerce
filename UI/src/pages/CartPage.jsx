@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 import styled from "styled-components";
 import { Add, Remove } from "@material-ui/icons";
-import { useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -9,7 +9,7 @@ import Announcements from "../components/Announcements";
 
 const Container = styled.div``;
 const Wrapper = styled.div`
-  padding:25px;
+  padding: 25px;
 `;
 
 const Title = styled.h1`
@@ -34,9 +34,7 @@ const TopButton = styled.button`
   color: ${(props) => props.type === "filled" && "white"};
 `;
 
-const TopTexts = styled.div`
-  
-`;
+const TopTexts = styled.div``;
 const TopText = styled.span`
   text-decoration: underline;
   cursor: pointer;
@@ -46,8 +44,6 @@ const TopText = styled.span`
 const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
- 
-
 `;
 
 const Info = styled.div`
@@ -57,7 +53,6 @@ const Info = styled.div`
 const Product = styled.div`
   display: flex;
   justify-content: space-between;
- 
 `;
 
 const ProductDetail = styled.div`
@@ -106,13 +101,11 @@ const ProductAmountContainer = styled.div`
 const ProductAmount = styled.div`
   font-size: 24px;
   margin: 5px;
-  
 `;
 
 const ProductPrice = styled.div`
   font-size: 30px;
   font-weight: 200;
-  
 `;
 
 const Hr = styled.hr`
@@ -154,8 +147,8 @@ const Button = styled.button`
 `;
 
 const CartPage = () => {
-  const cart = useSelector(state => state.cart)
-  console.log("cart")
+  const cart = useSelector((state) => state.cart);
+  console.log("cart");
   console.log(cart);
   return (
     <Container>
@@ -175,7 +168,7 @@ const CartPage = () => {
         </Top>
         <Bottom>
           <Info>
-            {cart.products.map(product => (
+            {cart.products.map((product) => (
               <div>
                 <Product>
                   <ProductDetail>

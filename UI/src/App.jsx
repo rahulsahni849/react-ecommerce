@@ -3,17 +3,15 @@ import React from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { Switch } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { flushSync } from "react-dom";
-import { REGISTER } from "redux-persist";
 
 import Products from "./pages/Products";
 import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
+import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
-import ProductPage from "./pages/ProductPage"
 import AboutPage from "./pages/AboutPage"
-import ContactPage from "./pages/ContactPage"
+import ContactPage from "./pages/ContactPage";
 
 function App() {
   const { currentUser } = useSelector((state) => state.user);
@@ -49,9 +47,7 @@ function App() {
           <Products />
         </Route>
 
-        <Route path="/cart">
-          {currentUser ? <CartPage /> : <Login />}
-        </Route>
+        <Route path="/cart">{currentUser ? <CartPage /> : <Login />}</Route>
 
         <Route path="/">
           <Home />
