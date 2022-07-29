@@ -167,6 +167,12 @@ const ProductPage = () => {
   };
 
   const handleClick = () => {
+    console.log("Quantity")
+    console.log(quantity)
+    console.log("Color")
+    console.log(color)
+    console.log("Size")
+    console.log(size)
     dispatch(
       addProduct({ ...product, quantity, color, size })
     );
@@ -196,7 +202,8 @@ const ProductPage = () => {
             </Filter>
             <Filter>
               <FilterTitle>Size</FilterTitle>
-              <FilterSize>
+
+              <FilterSize onChange={e => setSize(e.target.value)}>
                 {product.size ? product.size.map((s) => (
                   <FilterSizeOption key={s} onClick={() => setSize(s)}>{s}</FilterSizeOption>
                 )) : <></>}
@@ -207,7 +214,7 @@ const ProductPage = () => {
             <AmountContainer>
               <Remove onClick={() => handleQuantity("dec")}> - </Remove>
               <Amount>{quantity}</Amount>
-              <Add onClick={() => handleQuantity("inc ")}> + </Add>
+              <Add onClick={() => handleQuantity("inc")}> + </Add>
             </AmountContainer>
             <Button onClick={() => handleClick()}>ADD TO CART</Button>
           </AddContainer>
