@@ -39,6 +39,10 @@ function App() {
                     <ProductItem />
                 </Route>
 
+                <Route path="/products">
+                    <Products />
+                </Route>
+
                 <Route path="/">
                     <Home />
                 </Route>

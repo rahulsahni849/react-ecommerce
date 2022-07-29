@@ -6,7 +6,7 @@ import { useState } from "react";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Announcements from "../components/Announcements";
-import ProductsList from '../components/ProductsList'
+import ProductsList from '../components/ProductsList.jsx'
 
 const Select = styled.select`
     maegin:10px;
@@ -63,10 +63,10 @@ const Products = () => {
                         {/* Color */}
                         <Select name="color" onChange={handleFilters}>
                             <Option disabled>Color</Option>
-                            <Option>Orange</Option>
-                            <Option>Black</Option>
-                            <Option>Green</Option>
-                            <Option>Yellow</Option>
+                            <Option>orange</Option>
+                            <Option>black</Option>
+                            <Option>green</Option>
+                            <Option>yellow</Option>
                         </Select>
                         {/* Size */}
                         <Select name="size" onChange={handleFilters}>

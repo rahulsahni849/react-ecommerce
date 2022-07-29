@@ -31,28 +31,24 @@ const Container = styled.div`
     }
 
 `
-
 const Image = styled.img`
-    height: 75%;
-    width: 75%;
+    height: 100%;
+    width:40%;
     z-index: 2;
     justify-content: center;
     align-items: center;
     object-fit:cover;
 `
-
 const Circle = styled.div`
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    background-color: red;
+    background-color: white;
     position: absolute;
     justify-content: center;
     align-items: center;
     
 `
-
-
 const Icon = styled.div`
     background-color: white;
     width: 40px;
@@ -71,30 +67,28 @@ const Icon = styled.div`
     }
 `
 const ProductItem = ({ item }) => {
-    return (<
-        Container >
-        <Circle />
-        <Image src={item.image} />
-        <Info >
-            <
-        Icon >
-                <
-                    SearchOutlined />
-                <
-        /Icon> <
-        Icon >
-                    <
-                        ShoppingCartOutlined />
-                    <
-        /Icon> <
-        Icon >
-                        <
-                            FavoriteBorderOutlined />
-                        <
-        /Icon> < /
-        Info > <
-        /Container>
-                        )
+    console.log(item);
+    return (
+        <Container >
+            <Circle />
+
+            <Image src={item.img} />
+
+            <Info>
+                <Icon >
+                    < SearchOutlined />
+                </Icon>
+
+                <Icon >
+                    < ShoppingCartOutlined />
+                </Icon>
+
+                <Icon >
+                    <FavoriteBorderOutlined />
+                </Icon>
+            </Info>
+        </Container>
+    )
 }
 
-                        export default ProductItem;
+export default ProductItem;
