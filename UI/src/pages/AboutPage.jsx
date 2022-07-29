@@ -60,6 +60,17 @@ const Text = styled.p`
     letter-spacing:2.5px;
     word-spacing:10px;
 `;
+const DirectorContainer = styled.div`
+    display:flex;
+    flex-direction:column;
+`;
+const DirectorContent = styled.div`
+    display:flex;
+    justify-content:space-between;`;
+const DirectorItem = styled.div`
+    border:1px solid lightgray;
+    margin:5px;
+`;
 
 const AboutPage = () => {
     return (
@@ -120,6 +131,27 @@ const AboutPage = () => {
                         </Text>
                     </Content>
                 </ContentContainer>
+                <DirectorContainer>
+                    <Title>DIRECTORS</Title>
+
+                    <DirectorContent>
+                        <DirectorItem>
+                            <Image src="https://media.istockphoto.com/vectors/male-user-icon-vector-id517998264?k=20&m=517998264&s=612x612&w=0&h=pdEwtkJlZsIoYBVeO2Bo4jJN6lxOuifgjaH8uMIaHTU=" />
+
+                            <Text>Director 1</Text>
+                        </DirectorItem>
+                        <DirectorItem>
+                            <Image src="https://media.istockphoto.com/vectors/male-user-icon-vector-id517998264?k=20&m=517998264&s=612x612&w=0&h=pdEwtkJlZsIoYBVeO2Bo4jJN6lxOuifgjaH8uMIaHTU=" />
+
+                            <Text>Director 2</Text>
+                        </DirectorItem>
+                        <DirectorItem>
+                            <Image src="https://media.istockphoto.com/vectors/male-user-icon-vector-id517998264?k=20&m=517998264&s=612x612&w=0&h=pdEwtkJlZsIoYBVeO2Bo4jJN6lxOuifgjaH8uMIaHTU=" />
+
+                            <Text>Director 3</Text>
+                        </DirectorItem>
+                    </DirectorContent>
+                </DirectorContainer>
             </Wrapper>
 
             <Footer />
