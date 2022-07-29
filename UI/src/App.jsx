@@ -13,6 +13,7 @@ import Register from "./pages/Register.jsx";
 import CartPage from "./pages/CartPage";
 import ProductPage from "./pages/ProductPage"
 import AboutPage from "./pages/AboutPage"
+import ContactPage from "./pages/ContactPage"
 
 function App() {
   const { currentUser } = useSelector((state) => state.user);
@@ -20,6 +21,10 @@ function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/contact">
+          <ContactPage />
+        </Route>
+
         <Route path="/about">
           <AboutPage />
         </Route>
