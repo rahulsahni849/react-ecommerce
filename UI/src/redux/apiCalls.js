@@ -39,3 +39,12 @@ export const postOrders = async (accessToken, payload) => {
         return err;
     }
 }
+
+export const getSingleProduct = async (productId) => {
+    try {
+
+        return await publicRequest.get(`/products/find/${productId}`);
+    } catch (err) {
+        return err;
+    }
+}

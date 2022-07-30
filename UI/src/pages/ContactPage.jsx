@@ -14,12 +14,13 @@ const Wrapper = styled.div`
 `;
 
 const ContactImageContainer = styled.div`
-  flex: 1;
+  flex: 0.8;
   height: 100%;
-  width: 80%;
+  width: 100%;
+  padding-right: 30px;
 `;
 const ContactFormContainer = styled.div`
-  flex: 1;
+  flex: 1.2;
   height: 100%;
   width: 100%;
   display: flex;
@@ -114,7 +115,7 @@ const ContactPage = () => {
       <Announcements />
       <Wrapper>
         <ContactImageContainer>
-          <img src="/Images/contact-page-image.png" />
+          <img src="https://www.kindpng.com/picc/m/722-7226282_online-shopping-hd-png-download.png" />
         </ContactImageContainer>
         <ContactFormContainer>
           <Form>
