@@ -38,7 +38,6 @@ const Container = styled.div`
 `;
 const Image = styled.img`
   height: 100%;
-  width: 40%;
   z-index: 2;
   justify-content: center;
   align-items: center;
