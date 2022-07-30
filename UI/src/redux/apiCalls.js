@@ -30,3 +30,12 @@ export const getOrders = async (accessToken, userId) => {
         return err;
     }
 }
+
+export const postOrders = async (accessToken, payload) => {
+    try {
+        var request = userRequest(accessToken);
+        return request.post(`/orders/`, payload);
+    } catch (err) {
+        return err;
+    }
+}

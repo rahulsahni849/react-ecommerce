@@ -38,22 +38,23 @@ const ShoppingCartMenuDiv = styled.div`
         align-self: center;
         &:hover{
             background - color: #79C0F2;
-        transform: scale(1.04);
-        border-radius: 30px;
+            transform: scale(1.04);
+            border-radius: 30px;
     }`;
 
 const ProfileMenuDiv = styled.div`
-        margin-right: 15px;
-        margin-left: 20px;
-        height: 30px;
-        padding: 0px 10px;
-        align-self: center;
-        transition: all 0.6s ease;
-        &:hover{
-            background - color: #79C0F2;
-        transform: scale(1.04);
-        border-radius: 30px;
-}`;
+  margin-right: 15px;
+  margin-left: 20px;
+  height: 30px;
+  padding: 0px 10px;
+  align-self: center;
+  transition: all 0.6s ease;
+  &:hover {
+    background-color: #79c0f2;
+    transform: scale(1.04);
+    border-radius: 30px;
+  }
+`;
 
 const ProfileContainer = styled.div`
   position: relative;
@@ -103,9 +104,11 @@ const Navbar = () => {
 
         <div className="navbar-right-menu-items">
           <ShoppingCartMenuDiv>
-            <Badge badgeContent={quantity} color="secondary">
-              <ShoppingCart />
-            </Badge>
+            <Link to="/cart">
+              <Badge badgeContent={quantity} color="secondary">
+                <ShoppingCart />
+              </Badge>
+            </Link>
           </ShoppingCartMenuDiv>
 
           <ProfileContainer>
@@ -118,7 +121,7 @@ const Navbar = () => {
                   <ProfileMenu />
                 </ProfileMenuContainer>
               ) : (
-                <Redirect to="/Login" />
+                <Redirect to="/login" />
               )
             ) : (
               <></>

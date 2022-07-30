@@ -4,7 +4,7 @@ const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
 
 //REGISTER
-router.post("/register", async(req, res) => {
+router.post("/register", async (req, res) => {
     try {
         console.log(req.body);
         const newUser = new User({
@@ -24,13 +24,16 @@ router.post("/register", async(req, res) => {
 
 //LOGIN
 
-router.post('/login', async(req, res) => {
+router.post('/login', async (req, res) => {
     try {
         const user = await User.findOne({
             email: req.body.email
         });
 
-        !user && res.status(401).json("Wrong Email");
+        if (!user) {
+            res.status(401).json("Wrong Email");
+            return;
+        }
 
         const hashedPassword = CryptoJS.AES.decrypt(
             user.password,
@@ -42,8 +45,10 @@ router.post('/login', async(req, res) => {
 
         const inputPassword = req.body.password;
 
-        originalPassword != inputPassword &&
+        if (originalPassword != inputPassword) {
             res.status(401).json("Wrong Password");
+            return;
+        }
 
         console.log(user);
         const accessToken = jwt.sign({
@@ -51,11 +56,11 @@ router.post('/login', async(req, res) => {
         }, process.env.JWT_SEC);
 
         const { password, ...others } = user._doc;
-        res.status(200).json({...others, accessToken });
+        res.status(200).json({ ...others, accessToken });
 
     } catch (err) {
         console.log(err);
-        res.status(500).json(err);
+
     }
 
 });

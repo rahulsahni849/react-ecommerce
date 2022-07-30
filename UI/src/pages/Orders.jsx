@@ -5,7 +5,7 @@ import { getOrders } from "../redux/apiCalls";
 
 import Announcements from "../components/Announcements";
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar.jsx";
 
 const Container = styled.div``;
 
