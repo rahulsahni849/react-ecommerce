@@ -6,7 +6,9 @@ const authRoute = require("./routes/auth");
 const productRoute = require("./routes/product");
 const cartRoute = require("./routes/cart");
 const orderRoute = require("./routes/order");
+const mailRoute = require("./routes/mail");
 const cors = require("cors");
+
 
 const app = express();
 
@@ -21,6 +23,7 @@ app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
 app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
+app.use("/api/contacts", mailRoute);
 app.listen(process.env.PORT, () => { console.log("Server Started"); });
 
 mongoose.connect(connectionstring)

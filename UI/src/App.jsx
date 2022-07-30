@@ -10,7 +10,7 @@ import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
-import AboutPage from "./pages/AboutPage"
+import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 
 function App() {
@@ -25,6 +25,10 @@ function App() {
 
         <Route path="/about">
           <AboutPage />
+        </Route>
+
+        <Route path="/contacts">
+          <ContactPage />
         </Route>
 
         <Route path="/login">
