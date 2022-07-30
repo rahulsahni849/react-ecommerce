@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer";
 import Announcements from "../components/Announcements";
 import ProductsList from "../components/ProductsList.jsx";

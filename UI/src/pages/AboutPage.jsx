@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer";
 import Announcements from "../components/Announcements";
 

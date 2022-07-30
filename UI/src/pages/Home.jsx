@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer";
 import ProductsList from "../components/ProductsList.jsx";
 import Slider from "../components/Slider";

@@ -6,7 +6,7 @@ import { login } from "../redux/apiCalls";
 import { useSelector } from "react-redux";
 
 import Announcements from "../components/Announcements";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer";
 
 const Container = styled.div`

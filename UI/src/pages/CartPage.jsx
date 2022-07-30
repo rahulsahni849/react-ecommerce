@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Add, Remove } from "@material-ui/icons";
 import { useSelector } from "react-redux";
 
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer";
 import Announcements from "../components/Announcements";
 
@@ -164,7 +164,6 @@ const CartPage = () => {
             <TopText>Shopping Bag(2)</TopText>
             <TopText>Your Wishlist (0)</TopText>
           </TopTexts>
-          <TopButton type="filled">CHECKOUT NOW</TopButton>
         </Top>
         <Bottom>
           <Info>
