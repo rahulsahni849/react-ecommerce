@@ -6,6 +6,7 @@ import { removeProducts } from "../redux/cartRedux.js";
 import { postOrders } from "../redux/apiCalls.js";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import Swal from "sweetalert2";
 
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer";
@@ -159,31 +160,45 @@ const CartPage = () => {
   console.log(cart);
 
   const handleSubmit = () => {
-    if (!cart) {
-      return;
-    }
-    const products = cart.products.map((item) => {
-      return {
-        productId: item._id,
-        quantity: item.quantity,
-      };
-    });
-    const order = {
-      userId: user.currentUser._id,
-      products: products,
-      amount: cart.total,
-      address: "testing address",
-    };
-    postOrders(user.currentUser.accessToken, order)
-      .then((resp) => {
-        console.log(resp);
-        if (resp.status) {
-          dispatch(removeProducts());
-        }
-      })
-      .catch((err) => {
-        console.log(err);
+    Swal.fire({
+      title: "Shipping Details",
+      html: `<input type="text" id="phoneNumber" class="swal2-input" placeholder="Phonenumber">
+      <input type="text" id="address" class="swal2-input" placeholder="Address">`,
+      confirmButtonText: "Place Order",
+      focusConfirm: false,
+      preConfirm: () => {
+        const phoneNumber = Swal.getPopup().querySelector("#phoneNumber").value;
+        const address = Swal.getPopup().querySelector("#address").value;
+
+        return { phoneNumber: phoneNumber, address: address };
+      },
+    }).then((result) => {
+      if (!cart) {
+        return;
+      }
+      const products = cart.products.map((item) => {
+        return {
+          productId: item._id,
+          quantity: item.quantity,
+        };
       });
+      const order = {
+        userId: user.currentUser._id,
+        products: products,
+        amount: cart.total,
+        address: `${result.value.address}`,
+      };
+      postOrders(user.currentUser.accessToken, order)
+        .then((resp) => {
+          console.log(resp);
+          if (resp.status) {
+            dispatch(removeProducts());
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
   };
 
   return (

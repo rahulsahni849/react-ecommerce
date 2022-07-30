@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 const Container = styled.div`
   background-color: white;
@@ -15,6 +16,11 @@ const Title = styled.h5`
     font-weight: 750;
   }
 `;
+const Email = styled.h5`
+  font-weight: normal;
+  padding: 12.5px 25px;
+  font-weight: 750;
+`;
 const Hr = styled.hr`
   background-color: lightgray;
   border: none;
@@ -23,7 +29,7 @@ const Hr = styled.hr`
 `;
 const Button = styled.button`
   width: 200px;
-  margin: 25px;
+  margin: 12.5px 25px;
   padding: 10px;
   font-size: 17.5px;
   text-align: center;
@@ -40,11 +46,12 @@ const Button = styled.button`
 `;
 
 const ProfileMenu = () => {
+  const { currentUser } = useSelector((state) => state.user);
   return (
     <Container>
       <Title>Orders</Title>
-      <Title>Profile</Title>
       <Hr />
+      <Email>{currentUser.email}</Email>
       <Button>LOGOUT</Button>
     </Container>
   );
