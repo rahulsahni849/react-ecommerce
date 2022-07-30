@@ -75,12 +75,17 @@ const Navbar = () => {
             </div >
             <div className="navbar-right-menu-items" >
                 <ShoppingCartMenuDiv >
-                    <Badge badgeContent={quantity}
-                        color="secondary" >
-                        <ShoppingCart />
-                    </Badge> </ShoppingCartMenuDiv >
+                    <Link to="/cart" style={{ textDecoration: 'none', color: 'black' }}>
+                        <Badge badgeContent={quantity}
+                            color="secondary" >
+                            <ShoppingCart />
+                        </Badge>
+                    </Link>
+                </ShoppingCartMenuDiv >
                 <ProfileMenuDiv >
-                    <AccountBox />
+                    <Link to="/login" style={{ textDecoration: 'none', color: 'black' }}>
+                        <AccountBox />
+                    </Link>
                 </ProfileMenuDiv>
             </div>
         </div>

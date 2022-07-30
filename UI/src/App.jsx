@@ -8,7 +8,6 @@ import Products from "./pages/Products";
 import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
-
 import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
 import AboutPage from "./pages/AboutPage";
@@ -20,6 +19,10 @@ function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/contact">
+          <ContactPage />
+        </Route>
+
         <Route path="/about">
           <AboutPage />
         </Route>
