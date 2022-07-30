@@ -60,6 +60,7 @@ const ProfileContainer = styled.div`
 `;
 const ProfileMenuContainer = styled.div`
   position: absolute;
+  right: 0;
 `;
 
 const Navbar = () => {
