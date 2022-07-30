@@ -4,10 +4,13 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../redux/apiCalls";
 import { useSelector } from "react-redux";
+import { useHistory, Link } from "react-router-dom";
+import { useRef } from "react";
 
 import Announcements from "../components/Announcements";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer";
+import { Redirect } from "react-router";
 
 const Container = styled.div`
   width: 100%;
@@ -48,7 +51,7 @@ const Button = styled.button`
     background-color: skyblue;
   }
 `;
-const Link = styled.a`
+const LinkRef = styled.a`
   text-decoration: none;
   color: black;
   text-align: left;
@@ -64,12 +67,23 @@ const Error = styled.b`
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const [error, setError] = useState(false);
   const dispatch = useDispatch();
-  const { isFetching, error } = useSelector((state) => state.user);
+  const history = useHistory();
+  const { currentUser, isFetching } = useSelector((state) => state.user);
   const handleClick = (e) => {
     e.preventDefault();
     const email = username;
-    login(dispatch, { email, password });
+    login(dispatch, { email, password }).then((resp) => {
+      if (resp) {
+        setError(false);
+        history.push("/");
+      } else {
+        setError(true);
+      }
+      //console.log(resp);
+    });
   };
 
   return (
@@ -82,23 +96,27 @@ const Login = () => {
           <Form>
             <Input
               placeholder="username"
+              required
               onChange={(e) => {
                 setUsername(e.target.value);
               }}
             />
             <Input
               placeholder="password"
+              required
               type="password"
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
             />
-            {error ? <Error>Email or Password is wrong</Error> : null}
-            <Button onClick={handleClick} disabled={isFetching}>
-              Log In
-            </Button>
-            <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-            <Link>CREATE A NEW ACCOUNT</Link>
+            {!error ? null : <Error>Email or Password is wrong</Error>}
+            <Button onClick={handleClick}>Log In</Button>
+            <LinkRef>DO NOT YOU REMEMBER THE PASSWORD?</LinkRef>
+            <Link to="/register" style={{ textDecoration: "none" }}>
+              <LinkRef>
+                <b>CREATE A NEW ACCOUNT</b>
+              </LinkRef>
+            </Link>
           </Form>
         </Wrapper>
       </Container>

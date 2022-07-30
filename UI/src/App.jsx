@@ -12,6 +12,7 @@ import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
+import Orders from "./pages/Orders.jsx";
 
 function App() {
   const { currentUser } = useSelector((state) => state.user);
@@ -19,12 +20,12 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/contact">
-          <ContactPage />
-        </Route>
-
         <Route path="/about">
           <AboutPage />
+        </Route>
+
+        <Route path="/orders">
+          <Orders />
         </Route>
 
         <Route path="/contacts">
