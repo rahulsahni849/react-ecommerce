@@ -151,7 +151,9 @@ const ProductPage = () => {
         console.log("Response");
         console.log(res);
         setProduct(res.data);
-      } catch { }
+        setColor(res.data.color[0]);
+        setSize(res.data.size[0]);
+      } catch {}
     };
 
     getProduct();
