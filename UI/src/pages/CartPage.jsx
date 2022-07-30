@@ -11,7 +11,6 @@ import Swal from "sweetalert2";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer";
 import Announcements from "../components/Announcements";
-import Shipping from "../components/Shipping";
 
 const Container = styled.div``;
 const Wrapper = styled.div`
@@ -161,7 +160,6 @@ const CartPage = () => {
   console.log(cart);
 
   const handleSubmit = () => {
-    console.log(Shipping);
     Swal.fire({
       title: "Shipping Details",
       html: `<input type="text" id="phoneNumber" class="swal2-input" placeholder="Phonenumber">
