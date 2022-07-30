@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   background-color: white;
@@ -11,6 +12,7 @@ const Title = styled.h5`
   font-weight: normal;
   padding: 25px;
   transition: all 0.5s ease;
+  color: black;
 
   &:hover {
     font-weight: 750;
@@ -49,7 +51,9 @@ const ProfileMenu = () => {
   const { currentUser } = useSelector((state) => state.user);
   return (
     <Container>
-      <Title>Orders</Title>
+      <Link to="/orders">
+        <Title>Orders</Title>
+      </Link>
       <Hr />
       <Email>{currentUser.email}</Email>
       <Button>LOGOUT</Button>

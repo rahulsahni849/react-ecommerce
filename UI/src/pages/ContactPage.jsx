@@ -108,6 +108,10 @@ const Button = styled.button`
   border-radius: 7px;
 `;
 
+const Image = styled.img`
+  width: 100%;
+`;
+
 const ContactPage = () => {
   return (
     <Container>
@@ -115,7 +119,7 @@ const ContactPage = () => {
       <Announcements />
       <Wrapper>
         <ContactImageContainer>
-          <img src="https://www.kindpng.com/picc/m/722-7226282_online-shopping-hd-png-download.png" />
+          <Image src="https://www.kindpng.com/picc/m/722-7226282_online-shopping-hd-png-download.png" />
         </ContactImageContainer>
         <ContactFormContainer>
           <Form>

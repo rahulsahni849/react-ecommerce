@@ -96,10 +96,12 @@ const OrderStatusWrapperText = styled.p`
 const OrderComponent = ({ item }) => {
   const [imageUrl, setImageUrl] = useState({});
   useEffect(() => {
-    getSingleProduct(item.products[0].productId).then((resp) => {
-      console.log(resp.data);
-      setImageUrl(resp.data.img);
-    });
+    if (item.products[0]) {
+      getSingleProduct(item.products[0].productId).then((resp) => {
+        console.log(resp.data);
+        setImageUrl(resp.data.img);
+      });
+    }
   }, []);
 
   return (

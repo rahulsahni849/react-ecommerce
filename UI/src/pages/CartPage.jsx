@@ -7,6 +7,7 @@ import { postOrders } from "../redux/apiCalls.js";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Redirect } from "react-router-dom";
 
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer";
@@ -193,6 +194,7 @@ const CartPage = () => {
           console.log(resp);
           if (resp.status) {
             dispatch(removeProducts());
+            Redirect.to("/orders");
           }
         })
         .catch((err) => {

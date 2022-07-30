@@ -4,15 +4,12 @@ import { Link } from "react-router-dom";
 
 const Container = styled.div`
   flex: 1;
-  height: 75vh;
   position: relative;
   margin: 5px;
-  height: 70vh;
   cursor: pointer;
 `;
 const Image = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 85%;
 `;
 const TitleContainer = styled.div`
   width: 100%;

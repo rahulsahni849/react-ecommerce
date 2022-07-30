@@ -9,15 +9,15 @@ export const ItemsData = [{
     },
     {
         "id": 2,
-        "url": "https://www.prada.com/content/dam/pradanux/e-commerce/2022/07/subhome_update/woman/card_landscape/card_landscape_TB.jpg/_jcr_content/renditions/cq5dam.web.2560.2560.webp",
-        "New Arrivals",
+        "url": "https://www.prada.com/content/dam/pradanux/e-commerce/2022/06/pacchetto_bianco/rtw_women/card_1_v2/2x2_DT.jpg/_jcr_content/renditions/cq5dam.web.840.840.webp",
+        "title": "New Arrivals",
         "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores temporibus, placeat veniam voluptatibus quam, voluptas quisquam eum incidunt omnis, quis hic distinctio commodi aliquid blanditiis? Quam perferendis iure dolorum cum?"
 
     },
     {
         "id": 3,
-        "url": "/Images/product-3.jpg",
-        "title": "Book 3",
+        "url": "https://www.prada.com/content/dam/pradanux/e-commerce/2022/04/co_summer/women/collection/editoriali/1_v2/2x2_DT.jpg/_jcr_content/renditions/cq5dam.web.840.840.webp",
+        "title": "Summer Collection",
         "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores temporibus, placeat veniam voluptatibus quam, voluptas quisquam eum incidunt omnis, quis hic distinctio commodi aliquid blanditiis? Quam perferendis iure dolorum cum?"
 
     },

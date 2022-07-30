@@ -18,7 +18,7 @@ const MenuItems = (props) => {
 const Menus = [
   {
     MenuName: "Products",
-    url: "/products",
+    url: "/products/men",
   },
   {
     MenuName: "About",
