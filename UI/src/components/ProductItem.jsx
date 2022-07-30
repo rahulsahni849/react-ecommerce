@@ -87,10 +87,6 @@ const ProductItem = ({ item }) => {
         <Icon>
           <ShoppingCartOutlined />
         </Icon>
-
-        <Icon>
-          <FavoriteBorderOutlined />
-        </Icon>
       </Info>
     </Container>
   );
