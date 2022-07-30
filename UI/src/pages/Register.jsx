@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { register } from "../redux/apiCalls";
 import Swal from "sweetalert2";
 
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar.jsx";
 import Announcements from "../components/Announcements";
 import Footer from "../components/Footer";
 

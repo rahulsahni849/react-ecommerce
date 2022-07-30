@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer";
 import Announcements from "../components/Announcements";
 
@@ -26,7 +26,8 @@ const ContactFormContainer = styled.div`
   flex-direction: column;
   align-self: center;
   justify-self: center;
-  background-color: #79c0f2;
+  background-color: #edf8ff;
+  border: 1px solid lightgray;
   border-radius: 10px;
   margin-right: 50px;
 `;
@@ -100,7 +101,7 @@ const Button = styled.button`
   border: none;
   padding: 10px;
   width: 40%;
-  background-color: white;
+  background-color: #3baaf7;
   font-weight: bold;
   margin-top: 20px;
   border-radius: 7px;

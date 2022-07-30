@@ -8,7 +8,7 @@ import { useHistory, Link } from "react-router-dom";
 import { useRef } from "react";
 
 import Announcements from "../components/Announcements";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer";
 import { Redirect } from "react-router";
 

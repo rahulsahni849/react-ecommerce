@@ -6,7 +6,7 @@ import { publicRequest } from "../requestMethods";
 import { addProduct } from "../redux/cartRedux";
 import { useDispatch } from "react-redux";
 
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer";
 import Announcements from "../components/Announcements";
 
@@ -151,6 +151,8 @@ const ProductPage = () => {
         console.log("Response");
         console.log(res);
         setProduct(res.data);
+        setColor(res.data.color[0]);
+        setSize(res.data.size[0]);
       } catch {}
     };
 
