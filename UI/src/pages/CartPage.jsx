@@ -2,6 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { Add, Remove } from "@material-ui/icons";
 import { useSelector } from "react-redux";
+import { removeProducts } from "../redux/cartRedux.js";
+import { postOrders } from "../redux/apiCalls.js";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer";
@@ -148,8 +152,40 @@ const Button = styled.button`
 
 const CartPage = () => {
   const cart = useSelector((state) => state.cart);
-  console.log("cart");
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const history = useHistory();
+
   console.log(cart);
+
+  const handleSubmit = () => {
+    if (!cart) {
+      return;
+    }
+    const products = cart.products.map((item) => {
+      return {
+        productId: item._id,
+        quantity: item.quantity,
+      };
+    });
+    const order = {
+      userId: user.currentUser._id,
+      products: products,
+      amount: cart.total,
+      address: "testing address",
+    };
+    postOrders(user.currentUser.accessToken, order)
+      .then((resp) => {
+        console.log(resp);
+        if (resp.status) {
+          dispatch(removeProducts());
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <Container>
       <Navbar />
@@ -159,7 +195,9 @@ const CartPage = () => {
       <Wrapper>
         <Title>CART</Title>
         <Top>
-          <TopButton>CONTINUE SHOPPING</TopButton>
+          <TopButton onClick={() => history.push("/products")}>
+            CONTINUE SHOPPING
+          </TopButton>
           <TopTexts>
             <TopText>Shopping Bag(2)</TopText>
             <TopText>Your Wishlist (0)</TopText>
@@ -216,7 +254,7 @@ const CartPage = () => {
               <SummaryItemText>Total</SummaryItemText>
               <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
-            <Button>CHECKOUT NOW</Button>
+            <Button onClick={handleSubmit}>CHECKOUT NOW</Button>
           </Summary>
         </Bottom>
       </Wrapper>

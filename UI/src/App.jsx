@@ -28,7 +28,7 @@ function App() {
           <Orders />
         </Route>
 
-        <Route path="/contacts">
+        <Route path="/contact">
           <ContactPage />
         </Route>
 
